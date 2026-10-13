@@ -1,0 +1,92 @@
+id: coding-v2
+version: 2.1.0
+display_name: Agentic Coding v2
+default_stage: DISC-00
+stages:
+  - id: DISC-00
+    name: Discover / Safety
+    purpose: Understand repo, task, docs, branch, dirty worktree, commands, and constraints.
+    next: SCAN-05
+    skippable:
+      lightweight: false
+      standard: false
+      strict: false
+  - id: SCAN-05
+    name: Consequence Scan
+    purpose: Search impacted models, APIs, fixtures, consumers, tests, migrations, and rules.
+    next: SPEC-10
+    skippable:
+      lightweight: true
+      standard: true
+      strict: false
+  - id: SPEC-10
+    name: Specify
+    purpose: Capture acceptance criteria, assumptions, constraints, non-goals, risk, and mode.
+    next: PLAN-20
+    skippable:
+      lightweight: true
+      standard: true
+      strict: false
+  - id: PLAN-20
+    name: Plan
+    purpose: Create dependency-ordered tasks, model tiers, touched files, validation, and approval gate.
+    next: BUILD-30
+    skippable:
+      lightweight: true
+      standard: false
+      strict: false
+  - id: BUILD-30
+    name: Build
+    purpose: Implement one vertical slice at a time using TDD or equivalent regression proof.
+    next: VERIFY-40
+    skippable:
+      lightweight: false
+      standard: false
+      strict: false
+  - id: VERIFY-40
+    name: Verify
+    purpose: Run tests/build/lint/browser/API checks and gather evidence for acceptance criteria.
+    next: REVIEW-50
+    skippable:
+      lightweight: false
+      standard: false
+      strict: false
+  - id: REVIEW-50
+    name: Review
+    purpose: Review diff, security, API/interface, migration, performance, and acceptance traceability.
+    next: DOC-60
+    skippable:
+      lightweight: true
+      standard: false
+      strict: false
+  - id: DOC-60
+    name: Document
+    purpose: Update README/spec/architecture/docs index/ADRs or record why not needed.
+    next: SHIP-70
+    skippable:
+      lightweight: true
+      standard: true
+      strict: false
+  - id: SHIP-70
+    name: Ship
+    purpose: Final status, diff checks, optional commit, rollout/rollback notes, and handoff.
+    next: null
+    skippable:
+      lightweight: false
+      standard: false
+      strict: false
+transitions:
+  forward:
+    DISC-00: SCAN-05
+    SCAN-05: SPEC-10
+    SPEC-10: PLAN-20
+    PLAN-20: BUILD-30
+    BUILD-30: VERIFY-40
+    VERIFY-40: REVIEW-50
+    REVIEW-50: DOC-60
+    DOC-60: SHIP-70
+    SHIP-70: null
+  revisits:
+    BUILD-30: [SPEC-10, PLAN-20, SCAN-05]
+    VERIFY-40: [BUILD-30]
+    REVIEW-50: [BUILD-30, VERIFY-40, DOC-60]

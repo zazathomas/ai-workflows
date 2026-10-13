@@ -1,0 +1,32 @@
+{
+  "task_id": "temp-YYYYMMDD-short-name",
+  "goal": "",
+  "mode": "lightweight | standard | strict",
+  "risk": "low | medium | high",
+  "model_tier": "tier-1-mechanical | tier-2-normal | tier-3-critical",
+  "current_stage": "DISC-00",
+  "completed_stages": [],
+  "skipped_stages": [],
+  "acceptance_criteria": [],
+  "assumptions": [],
+  "decisions": [],
+  "open_questions": [],
+  "blockers": [],
+  "touched_files": [],
+  "out_of_scope": [],
+  "validation": {
+    "commands_planned": [],
+    "commands_run": [],
+    "evidence": [],
+    "last_result": ""
+  },
+  "artifacts": {
+    "plan": "docs/temp-YYYYMMDD-short-name/PLAN.md",
+    "todos": "docs/temp-YYYYMMDD-short-name/todos.md",
+    "checkpoint": "docs/temp-YYYYMMDD-short-name/checkpoint.md",
+    "manifest": "docs/temp-YYYYMMDD-short-name/artifacts.md",
+    "snapshots_dir": "docs/temp-YYYYMMDD-short-name/snapshots/"
+  },
+  "next_action": "",
+  "last_updated": "YYYY-MM-DDTHH:MM:SSZ"
+}
